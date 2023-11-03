@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>dries.jp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="terminal.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+
+function tglWindow(wdwName) {
+    $('#' + wdwName).toggle();
+}
+
+function hideWindow(wdwName) {
+    $('#' + wdwName).hide();
+}
+
+function showCredits() {
+  alert("This website is built on Windows 3.1 CSS by Matthijs\nIt can be found at: https://codepen.io/matthijss/pen/wzYjJQ\n\nTerminal plugin by Kevin Apthox\nHis github: https://github.com/Apthox"); 
+}
+</script>
+</head>
+<body>
+
+    <!-- main window -->
+    <div class="window-border ">
+        <div class="window">
+            <div class="title">
+                <div class="button close" id="window">
+                    &#8212;
+                </div>
+                dries.jp
+                <div class="button" id="max">
+                    &#9650;
+                </div>
+                <div class="button" id="min">
+                    &#9660;
+                </div>
+            </div>
+            <div class="menubar">
+                <div class="menuitem">
+                    <span style="text-decoration:underline;">F</span>ile
+                </div>
+                <div class="menuitem">
+                    <span style="text-decoration:underline;">O</span>ptions
+                </div>
+                <div class="menuitem">
+                    <span style="text-decoration:underline;">W</span>indows
+                </div>
+                <div class="menuitem" onclick="showCredits()">
+                    <span style="text-decoration:underline;">C</span>redits
+                </div>
+                <div class="menuitem">
+                    <span style="text-decoration:underline;">H</span>elp
+                </div>
+            </div>
+            <div class="icons">
+                <div class="icon" onclick="tglWindow('wndMusic')">
+                    <img src="icons/music.png" />
+                    <div class="text">Music</div>
+                </div>
+                <div class="icon" onclick="tglWindow('wndApplications')">
+                    <img src="icons/folder.png" />
+                    <div class="text">Applications</div>
+                </div>
+                <div class="icon" onclick="tglWindow('wndTerminal')">
+                    <img src="icons/msdos.png" />
+                    <div class="text">Terminal</div>
+                </div>
+                <div class="icon" onclick="tglWindow('wndContact')">
+                    <img src="icons/credits.png" />
+                    <div class="text">Contact</div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+        <div id="context-menu" style="display:none">
+            <div class="context-item"><span style="text-decoration:underline;">R</span>estore</div>
+            <div class="context-item"><span style="text-decoration:underline;">M</span>ove</div>
+            <div class="context-item"><span style="text-decoration:underline;">S</span>ize</div>
+            <div class="context-item">Mi<span style="text-decoration:underline;">n</span>imize</div>
+            <div class="context-item">Ma<span style="text-decoration:underline;">x</span>imize</div>
+        </div>
+    </div>
+    <!-- end main window -->
+    <!-- music window -->
+    <div class="window-border " id="wndMusic" style="display:none; left:150px; top: 200px; width: 650px; height: 200px;">
+        <div class="window">
+            <div class="title">
+                <div class="button close" id="window" onclick="hideWindow('wndMusic')">
+                    &#8212;
+                </div>
+                Music
+
+            </div>
+            <div class="icons">
+                <div class="icon" onclick="window.open('https://distrokid.com/hyperfollow/driesjp/the-last-collection-of-weird-synthy-stuff');">
+                    <img src="icons/music/tlcowss.jpg" />
+                    <div class="text">the last collection of weird synthy stuff</div>
+                </div>
+
+
+                <div class="icon" onclick="window.open('https://distrokid.com/hyperfollow/dries/waverunner');">
+                    <img src="icons/music/waverunner.jpg" />
+                    <div class="text">waverunner</div>
+                </div>
+
+
+                <div class="icon" onclick="window.open('https://distrokid.com/hyperfollow/dries/ninja-world-original-video-game-soundtrack');">
+                    <img src="icons/music/nw.jpg" />
+                    <div class="text">ninja world</div>
+                </div>
+
+
+                <div class="icon" onclick="window.open('https://distrokid.com/hyperfollow/dries/ok-computer-do-handel');">
+                    <img src="icons/music/okdh.jpg" />
+                    <div class="text">ok computer, do handel</div>
+                </div>
+
+
+                <div class="icon" onclick="window.open('https://distrokid.com/hyperfollow/dries/-');">
+                    <img src="icons/music/eibeyuf.jpg" />
+                    <div class="text">everyone is beautiful. even you, ugly fish</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+    <!-- end music window -->
+    <!-- Code window -->
+    <div class="window-border " id="wndCode" style="display:none; left:50px; top: 150px; width: 250px; height: 200px;">
+        <div class="window">
+            <div class="title">
+                <div class="button close" id="window" onclick="hideWindow('wndCode')">
+                    &#8212;
+                </div>
+                Code
+
+            </div>
+            <div class="icons">
+                <div class="icon">
+                    <img src="icons/app.png" />
+                    <div class="text">coming soon</div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+    <!-- end Code window -->
+    <!-- applications window -->
+    <div class="window-border " id="wndApplications" style="display:none; left:350px; top: 300px; width: 250px; height: 200px;">
+        <div class="window">
+            <div class="title">
+                <div class="button close" id="window" onclick="hideWindow('wndApplications')">
+                    &#8212;
+                </div>
+                Applications
+
+            </div>
+            <div class="icons">
+                <div class="icon" onclick="tglWindow('wndApplicationsGnm')">
+                    <img src="icons/guitarnotesmapper.png" />
+                    <div class="text">Guitar notes mapper</div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+    <!-- end applications window -->
+    <!-- guitar notes mapper window -->
+    <div class="window-border " id="wndApplicationsGnm" style="display:none; left:400px; top: 250px; width: 650px; height: 800px;">
+        <div class="window">
+            <div class="title">
+                <div class="button close" id="window" onclick="hideWindow('wndApplicationsGnm')">
+                    &#8212;
+                </div>
+                Applications - Guitar notes mapper
+
+            </div>
+            <div class="website">
+                <div class="website">
+                    <span style="font-size: 25px;"><center><u>Guitar notes mapper</u></center></span>
+                    <p>&nbsp;</p>
+                    <p>Guitar notes mapper is an application to help visualise the notes of chords on a guitar neck.</p>
+                    <p>Perhaps this may inspire someone to experiment instead of playing chord shapes, if they weren't already.</p>
+                    <p>&nbsp;</p>
+                    <p>It can also be used to simply display some or all notes on the neck.</p>
+                    <p>&nbsp;</p>
+                    <p>
+                        Windows 10+ (but should be 7+, though untested)
+                    </p>
+                    <center>
+                        <p>&nbsp;</p>
+                        <p><img src="app/gnm/gnmo.gif" /></p>
+
+                        <p><a href="app/gnm/Guitar_notes_mapper.zip"><img src="icons/download.gif" /></a></p>
+                    </center>
+
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+    <!-- end guitar notes mapper window -->
+    <!-- Terminal window -->
+    <div class="window-border " id="wndTerminal" style="display:none; left:50px; top: 150px; width: 1200px; height: 500px;">
+        <div class="window">
+            <div class="title">
+                <div class="button close" id="window" onclick="hideWindow('wndTerminal')">
+                    &#8212;
+                </div>
+                Terminal
+            </div>
+            <div id="screen">
+                <div id="Container">
+                    <div id="input">
+                        <p id="input_title"></p>
+                        <input id="input_source" type="command" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus>
+                    </div>
+                    <div id="logger">
+                        <div id="wrapper">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="terminal.js"></script>
+            <script src="commands.js"></script>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+    <!-- end Terminal window -->
+    <!-- contact window -->
+    <div class="window-border " id="wndContact" style="display:none; left:150px; top: 300px; width: 200px; height: 120px;">
+        <div class="window">
+            <div class="title">
+                <div class="button close" id="window" onclick="hideWindow('wndContact')">
+                    &#8212;
+                </div>
+                Contact
+
+            </div>
+            <div class="icons">
+                <div class="icon" onclick="location.href='mailto:hello@dries.jp';">
+                    <img src="icons/mail.png" />
+                    <div class="text">hello@dries.jp</div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+    <!-- end contact window -->
+
+
+
+
+
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script>
+    <script src="./script.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (window.location.href.indexOf("gnm") > -1) {
+                tglWindow('wndApplicationsGnm');
+            }
+        });
+    </script>
+
+</body>
+</html>
