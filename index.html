@@ -213,7 +213,6 @@ function showCredits() {
                         <p><a href="app/gnm/Guitar_notes_mapper.zip"><img src="icons/download.gif" /></a></p>
                     </center>
 
-
                 </div>
 
 
@@ -271,7 +270,6 @@ function showCredits() {
                     <div class="text">hello@dries.jp</div>
                 </div>
 
-
             </div>
         </div>
         <div class="bottomright handle"></div>
@@ -281,20 +279,17 @@ function showCredits() {
     </div>
     <!-- end contact window -->
 
-
-
-
-
-
-
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script>
     <script src="./script.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
-            if (window.location.href.indexOf("gnm") > -1) {
-                tglWindow('wndApplicationsGnm');
+            if (window.location.href.indexOf("link=") > -1) {
+                let linkVar = window.location.href.split('link=')[1];
+                switch (linkVar) {
+                    case "gnm": tglWindow('wndApplicationsGnm'); break;
+                }
             }
         });
     </script>
