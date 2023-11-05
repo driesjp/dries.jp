@@ -285,11 +285,15 @@ function showCredits() {
 
     <script type="text/javascript">
         $(document).ready(function () {
-            if (window.location.href.indexOf("link=") > -1) {
-                let linkVar = window.location.href.split('link=')[1];
-                switch (linkVar) {
-                    case "gnm": tglWindow('wndApplicationsGnm'); break;
-                }
+            const url = new URL(window.location.href);
+            const searchParams = url.searchParams;
+            switch (true) {
+                case searchParams.has("guitar"):
+                    tglWindow('wndApplicationsGnm');
+                    break;
+                case searchParams.has("apps"):
+                    tglWindow('wndApplications');
+                    break;
             }
         });
     </script>
