@@ -176,6 +176,11 @@ function showCredits() {
                     <img src="icons/guitarnotesmapper.png" />
                     <div class="text">Guitar notes mapper</div>
                 </div>
+
+                <div class="icon" onclick="window.open('jnd.html');">
+                    <img src="icons/jn.png" />
+                    <div class="text">Japanese number dictation</div>
+                </div>
             </div>
         </div>
         <div class="bottomright handle"></div>
@@ -224,6 +229,95 @@ function showCredits() {
         <div class="bottomleft handle"></div>
     </div>
     <!-- end guitar notes mapper window -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- japanese number dictation window -->
+ <div class="window-border " id="wndApplicationsJnd" style="display:none; left:400px; top: 250px; width: 650px; height: 800px;">
+    <div class="window">
+        <div class="title">
+            <div class="button close" id="window" onclick="hideWindow('wndApplicationsJnd')">
+                &#8212;
+            </div>
+            Applications - Japanese number dictation
+
+        </div>
+        <div class="website">
+            <div class="website">
+                <span style="font-size: 25px;"><center><u>Japanese number dictation</u></center></span>
+                <center>
+                <p>&nbsp;</p><p>&nbsp;</p>
+                <p>Practice your Japanese numbers with dictation.</p>
+                <p>&nbsp;</p><p>&nbsp;</p>
+                <p><a href="jnd.html" target="_new" style="font-size:xx-large">OPEN</a></p>
+
+            </center>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="bottomright handle"></div>
+    <div class="topright handle"></div>
+    <div class="topleft handle"></div>
+    <div class="bottomleft handle"></div>
+</div>
+<!-- end japanese number dictation window -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Terminal window -->
     <div class="window-border " id="wndTerminal" style="display:none; left:50px; top: 150px; width: 1200px; height: 500px;">
         <div class="window">
@@ -293,6 +387,9 @@ function showCredits() {
                     break;
                 case searchParams.has("apps"):
                     tglWindow('wndApplications');
+                    break;
+                case searchParams.has("japanese"):
+                    window.location.href = "jnd.html";
                     break;
             }
         });

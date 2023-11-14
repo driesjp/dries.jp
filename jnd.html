@@ -1,0 +1,114 @@
+<html>
+<head>
+  <title>dries.jp - Japanese number dictation</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .top-title {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+
+      .container {
+        text-align: center;
+        padding: 20px;
+        border: 2px solid #000000;
+        border-radius: 8px;
+      }
+
+      input, button {
+        margin: 5px;
+      }
+
+      .credit-text {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        margin: 10px;
+        color: #000000;
+      }
+    </style>
+</head>
+<body>
+<p> <a href="http://www.dries.jp" target="_new"><img src="icons/logo_wordart.png"></a></p>
+    <div class="top-title">
+        <p>Japanese number dictation</p>
+      </div>
+
+    <div class="container">
+      Max: <input type="text" name="MaxNr" id="MaxNr" value="100"></br><button onclick="javascript:GenNewNumber();">New number</button>
+      <button onclick="javascript:PlayNewNumber();">Repeat number</button>
+
+
+      <p><input type="text" name="TxtInput" id="TxtInput"><button onclick="javascript:CheckNumber();">OK</button></p>
+    </div>
+
+    <div class="credit-text">
+     &copy; 2020, Dries Swartel&eacute;
+    </div>
+
+<script>
+  $(function() {
+    var NewNumber = 0; 
+    GenNewNumber();
+    $("#TxtInput").focus();
+  });
+
+  $(document).keypress(function(e) {
+    if ((e.keyCode || e.which) == 13) {
+      CheckNumber();
+    }
+  });
+
+  function GenNewNumber() {
+    NewNumber = Math.floor((Math.random() * $("#MaxNr").val()) + 1);
+    speak(NewNumber);
+  }
+
+  function PlayNewNumber() {
+    speak(NewNumber);
+  }
+
+  function CheckNumber() {
+    if ($("#TxtInput").val() == NewNumber) {
+      GenNewNumber();
+    } else {
+      speak('いいえ、また、' + NewNumber);
+    }
+    $('#TxtInput').val('');
+  }
+
+  function speak(text, callback) {
+    var u = new SpeechSynthesisUtterance();
+    u.text = text;
+    u.lang = 'ja-JP';
+    u.rate = '0.8';
+
+    u.onend = function () {
+      if (callback) {
+          callback();
+      }
+    };
+
+    u.onerror = function (e) {
+      if (callback) {
+          callback(e);
+      }
+    };
+
+    speechSynthesis.speak(u);
+  }
+</script>
+</body>
+</html>
