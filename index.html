@@ -20,6 +20,37 @@ function hideWindow(wdwName) {
 function showCredits() {
   alert("This website is built on Windows 3.1 CSS by Matthijs\nIt can be found at: https://codepen.io/matthijss/pen/wzYjJQ\n\nTerminal plugin by Kevin Apthox\nHis github: https://github.com/Apthox"); 
 }
+
+function loadMusic(musicSelect) {
+    switch(musicSelect) {
+        case "synthy":
+            document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 241px;" src="https://bandcamp.com/EmbeddedPlayer/album=4053536911/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/the-last-collection-of-weird-synthy-stuff">the last collection of weird synthy stuff by dries.jp</a></iframe>';
+            document.getElementById('wndMusicPlayer').style.height='268px';
+            break;
+        case "waverunner":
+            document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 241px;" src="https://bandcamp.com/EmbeddedPlayer/album=1992622795/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/waverunner">Waverunner by dries.jp</a></iframe>';
+            document.getElementById('wndMusicPlayer').style.height='268px';
+            break;
+        case "ninja":
+            document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 307px;" src="https://bandcamp.com/EmbeddedPlayer/album=4282061298/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/ninja-world-original-video-game-soundtrack">Ninja World (Original Video Game Soundtrack) by dries.jp</a></iframe>';
+            document.getElementById('wndMusicPlayer').style.height='334px';
+            break;
+        case "handel":
+            document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 208px;" src="https://bandcamp.com/EmbeddedPlayer/album=1472174956/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/ok-computer-do-handel">Ok computer, do Handel. by dries.jp</a></iframe>';
+            document.getElementById('wndMusicPlayer').style.height='225px';
+            break;
+        case "fish":
+            document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 373px;" src="https://bandcamp.com/EmbeddedPlayer/album=2620067066/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/-">誰もが美しいです。 あなたでさえ、醜い魚。 by dries.jp</a></iframe>';
+            document.getElementById('wndMusicPlayer').style.height='400px';
+            break;        
+        case "none":
+            document.getElementById('MusicPlayerDIV').innerHTML = 'Music Player';
+            break;
+        default:
+            document.getElementById('MusicPlayerDIV').innerHTML = 'Music Player';
+    } 
+}
+
 </script>
 </head>
 <body>
@@ -96,34 +127,34 @@ function showCredits() {
                     &#8212;
                 </div>
                 Music
-
+                
             </div>
             <div class="icons">
-                <div class="icon" onclick="window.open('https://driesjp.bandcamp.com/album/the-last-collection-of-weird-synthy-stuff');">
+                <div class="icon" onclick="loadMusic('synthy'); tglWindow('wndMusicPlayer');">
                     <img src="icons/music/tlcowss.jpg" />
                     <div class="text">the last collection of weird synthy stuff</div>
                 </div>
 
 
-                <div class="icon" onclick="window.open('https://driesjp.bandcamp.com/album/waverunner');">
+                <div class="icon" onclick="loadMusic('waverunner'); tglWindow('wndMusicPlayer');">
                     <img src="icons/music/waverunner.jpg" />
                     <div class="text">waverunner</div>
                 </div>
 
 
-                <div class="icon" onclick="window.open('https://driesjp.bandcamp.com/album/ninja-world-original-video-game-soundtrack');">
+                <div class="icon" onclick="loadMusic('ninja'); tglWindow('wndMusicPlayer');">
                     <img src="icons/music/nw.jpg" />
                     <div class="text">ninja world</div>
                 </div>
 
 
-                <div class="icon" onclick="window.open('https://driesjp.bandcamp.com/album/ok-computer-do-handel');">
+                <div class="icon" onclick="loadMusic('handel'); tglWindow('wndMusicPlayer');">
                     <img src="icons/music/okdh.jpg" />
                     <div class="text">ok computer, do handel</div>
                 </div>
 
 
-                <div class="icon" onclick="window.open('https://driesjp.bandcamp.com/album/-');">
+                <div class="icon" onclick="loadMusic('fish'); tglWindow('wndMusicPlayer');">
                     <img src="icons/music/eibeyuf.jpg" />
                     <div class="text">everyone is beautiful. even you, ugly fish</div>
                 </div>
@@ -234,84 +265,28 @@ function showCredits() {
 
 
 
+    <!-- music player window -->
+    <div class="window-border " id="wndMusicPlayer" style="display:none; left:500px; top: 450px; width: 400px; height: 20px;">
+        <div class="window">
+            <div class="title">
+                <div class="button close" id="window" onclick="hideWindow('wndMusicPlayer'); loadMusic('none'); ">
+                    &#8212;
+                </div>
+                Music Player
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- <!-- japanese number dictation window -->
- <div class="window-border " id="wndApplicationsJnd" style="display:none; left:400px; top: 250px; width: 650px; height: 800px;">
-    <div class="window">
-        <div class="title">
-            <div class="button close" id="window" onclick="hideWindow('wndApplicationsJnd')">
-                &#8212;
             </div>
-            Applications - Japanese number dictation
+                <div id="MusicPlayerDIV">
 
+                    <iframe style="border: 0; width: 400px; height: 241px;" src="https://bandcamp.com/EmbeddedPlayer/album=4053536911/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/the-last-collection-of-weird-synthy-stuff">the last collection of weird synthy stuff by dries.jp</a></iframe>
+
+                </div>
         </div>
-        <div class="website">
-            <div class="website">
-                <span style="font-size: 25px;"><center><u>Japanese number dictation</u></center></span>
-                <center>
-                <p>&nbsp;</p><p>&nbsp;</p>
-                <p>Practice your Japanese numbers with dictation.</p>
-                <p>&nbsp;</p><p>&nbsp;</p>
-                <p><a href="jnd.html" target="_new" style="font-size:xx-large">OPEN</a></p>
-
-            </center>
-            </div>
-
-
-        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
     </div>
-    <div class="bottomright handle"></div>
-    <div class="topright handle"></div>
-    <div class="topleft handle"></div>
-    <div class="bottomleft handle"></div>
-</div>
-<!-- end japanese number dictation window -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- end music player window -->
 
 
 
