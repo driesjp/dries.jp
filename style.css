@@ -109,6 +109,17 @@ a:active {
     z-index: 5;
 }
 
+.website-blog {
+  bottom: 5px;
+  left: 0px;
+  right: 0px;
+  padding: 0px 0px;
+  background: #000000;
+  height: 777px;
+  color: #fff;
+  z-index: 6;
+}
+
 .icons .icon {
   display: inline-block;
   margin: 00px 10px;
@@ -209,4 +220,38 @@ a:active {
 #context-menu .context-item:active {
   background: #000080;
   color: #fff;
+}
+
+.blog-post-title {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.blog-post img {
+  display: block;
+  margin: 0 auto;
+  max-width: 600px;
+  height: auto;
+}
+
+.blog-post p {
+  margin-top: 1em; /* Spacing above each paragraph */
+  margin-bottom: 2em; /* Spacing below each paragraph */
+}
+
+#blog-container {
+  max-height: 700px; /* Set the maximum height */
+  overflow-y: auto; /* Enable vertical scrollbar when content exceeds max-height */
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  width: 100%; /* Adjust width as needed */
+  /* Optional: Add internal padding and border for better visual appearance */
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.publish-date {
+  text-align: right;
+  margin-top: 1em; /* Space above the date */
+  margin-bottom: 2em; /* Space below the date */
+  opacity: 0.8;
 }
