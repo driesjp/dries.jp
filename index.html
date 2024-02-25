@@ -101,7 +101,7 @@ function loadMusic(musicSelect) {
                     <img src="icons/msdos.png" />
                     <div class="text">Terminal</div>
                 </div>
-                <div class="icon" onclick="tglWindow('wndBlog')">
+                <div class="icon" onclick="window.open('http://bluesky.dries.jp');">
                     <img src="icons/blog.png" />
                     <div class="text">Blog</div>
                 </div>
@@ -270,92 +270,6 @@ function loadMusic(musicSelect) {
         <div class="bottomleft handle"></div>
     </div>
     <!-- end guitar notes mapper window -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- blog window -->
-    <div class="window-border " id="wndBlog" style="display:none; left:400px; top: 250px; width: 700px; height: 803px;">
-        <div class="window">
-            <div class="title">
-                <div class="button close" id="window" onclick="hideWindow('wndBlog')">
-                    &#8212;
-                </div>
-                Blog
-
-            </div>
-            <div class="website-blog">
-                        <div id="blog-container" style="max-height: 756px; width: 680px; overflow-y: auto; overflow-x: hidden; padding: 10px; border: 0px;"> <!-- Using inline for Firefox <3 compatibility, don't judge me :( -->
-                            <!-- Blog posts will be loaded here -->
-                          </div>
-                          <script src="blog.js"></script>
-                </div>
-
-
-
-        </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-    </div>
-    <!-- end blog window -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
