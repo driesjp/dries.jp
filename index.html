@@ -24,6 +24,10 @@ function showCredits() {
 
 function loadMusic(musicSelect) {
     switch(musicSelect) {
+        case "soundwave":
+            document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 170px;" src="https://bandcamp.com/EmbeddedPlayer/track=4007964055/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/track/--8">the last collection of weird synthy stuff by dries.jp</a></iframe>';
+            document.getElementById('wndMusicPlayer').style.height='197px';
+            break;
         case "synthy":
             document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 241px;" src="https://bandcamp.com/EmbeddedPlayer/album=4053536911/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/the-last-collection-of-weird-synthy-stuff">the last collection of weird synthy stuff by dries.jp</a></iframe>';
             document.getElementById('wndMusicPlayer').style.height='268px';
@@ -125,7 +129,7 @@ function loadMusic(musicSelect) {
     </div>
     <!-- end main window -->
     <!-- music window -->
-    <div class="window-border " id="wndMusic" style="display:none; left:150px; top: 200px; width: 650px; height: 200px;">
+    <div class="window-border " id="wndMusic" style="display:none; left:150px; top: 200px; width: 700px; height: 200px;">
         <div class="window">
             <div class="title">
                 <div class="button close" id="window" onclick="hideWindow('wndMusic')">
@@ -135,6 +139,13 @@ function loadMusic(musicSelect) {
                 
             </div>
             <div class="icons">
+                <div class="icon" onclick="loadMusic('soundwave'); tglWindow('wndMusicPlayer');">
+                    <img src="icons/music/soundwave.jpg" />
+                    <div class="text">Soundwave</div>
+                </div>
+
+
+
                 <div class="icon" onclick="loadMusic('synthy'); tglWindow('wndMusicPlayer');">
                     <img src="icons/music/tlcowss.jpg" />
                     <div class="text">the last collection of weird synthy stuff</div>
