@@ -1,396 +1,69 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>dries.jp</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link rel="stylesheet" href="terminal.css">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dries.jp</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const albumContents = {
+            'soundwave_saga': `<iframe style="border: 0; width: 550px; height: 642px;" src="https://bandcamp.com/EmbeddedPlayer/track=4007964055/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/track/demo">サウンドウェーブ (demo) by dries.jp</a></iframe>`,
+            'tlcowss': `<iframe style="border: 0; width: 550px; height: 755px;" src="https://bandcamp.com/EmbeddedPlayer/album=4053536911/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/the-last-collection-of-weird-synthy-stuff">the last collection of weird synthy stuff by dries.jp</a></iframe><br /><a href="https://artists.landr.com/064837725468" target="_new"><img src="img/music_services.png" alt="Music Services"></a>`,
+            'waverunner': `<iframe style="border: 0; width: 550px; height: 755px;" src="https://bandcamp.com/EmbeddedPlayer/album=1992622795/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/waverunner">Waverunner by dries.jp</a></iframe><br /><a href="https://artists.landr.com/064837725444" target="_new"><img src="img/music_services.png" alt="Music Services"></a>`,
+            'ninja_world': `<iframe style="border: 0; width: 550px; height: 821px;" src="https://bandcamp.com/EmbeddedPlayer/album=4282061298/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/ninja-world-original-video-game-soundtrack">Ninja World (Original Video Game Soundtrack) by dries.jp</a></iframe>`,
+            'handel': `<iframe style="border: 0; width: 550px; height: 722px;" src="https://bandcamp.com/EmbeddedPlayer/album=1472174956/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/ok-computer-do-handel">Ok computer, do Handel. by dries.jp</a></iframe>`,
+            'eibeyuf': `<iframe style="border: 0; width: 550px; height: 887px;" src="https://bandcamp.com/EmbeddedPlayer/album=2620067066/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/-">誰もが美しいです。 あなたでさえ、醜い魚。 by dries.jp</a></iframe><br /><a href="https://artists.landr.com/064837725406" target="_new"><img src="img/music_services.png" alt="Music Services"></a>`,
+        };
 
-<link rel="stylesheet" href="style.css">
-<script>
-
-function tglWindow(wdwName) {
-    $('#' + wdwName).toggle();
-}
-
-function hideWindow(wdwName) {
-    $('#' + wdwName).hide();
-}
-
-function showCredits() {
-  alert("This website is built on Windows 3.1 CSS by Matthijs\nIt can be found at: https://codepen.io/matthijss/pen/wzYjJQ\n\nTerminal plugin by Kevin Apthox\nHis github: https://github.com/Apthox"); 
-}
-
-function loadMusic(musicSelect) {
-    switch(musicSelect) {
-        case "soundwave":
-            document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 170px;" src="https://bandcamp.com/EmbeddedPlayer/track=4007964055/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/track/--8">the last collection of weird synthy stuff by dries.jp</a></iframe>';
-            document.getElementById('wndMusicPlayer').style.height='197px';
-            break;
-        case "synthy":
-            document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 241px;" src="https://bandcamp.com/EmbeddedPlayer/album=4053536911/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/the-last-collection-of-weird-synthy-stuff">the last collection of weird synthy stuff by dries.jp</a></iframe>';
-            document.getElementById('wndMusicPlayer').style.height='268px';
-            break;
-        case "waverunner":
-            document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 241px;" src="https://bandcamp.com/EmbeddedPlayer/album=1992622795/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/waverunner">Waverunner by dries.jp</a></iframe>';
-            document.getElementById('wndMusicPlayer').style.height='268px';
-            break;
-        case "ninja":
-            document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 307px;" src="https://bandcamp.com/EmbeddedPlayer/album=4282061298/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/ninja-world-original-video-game-soundtrack">Ninja World (Original Video Game Soundtrack) by dries.jp</a></iframe>';
-            document.getElementById('wndMusicPlayer').style.height='334px';
-            break;
-        case "handel":
-            document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 208px;" src="https://bandcamp.com/EmbeddedPlayer/album=1472174956/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/ok-computer-do-handel">Ok computer, do Handel. by dries.jp</a></iframe>';
-            document.getElementById('wndMusicPlayer').style.height='225px';
-            break;
-        case "fish":
-            document.getElementById('MusicPlayerDIV').innerHTML = '<iframe style="border: 0; width: 400px; height: 373px;" src="https://bandcamp.com/EmbeddedPlayer/album=2620067066/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/-">誰もが美しいです。 あなたでさえ、醜い魚。 by dries.jp</a></iframe>';
-            document.getElementById('wndMusicPlayer').style.height='400px';
-            break;        
-        case "none":
-            document.getElementById('MusicPlayerDIV').innerHTML = 'Music Player';
-            break;
-        default:
-            document.getElementById('MusicPlayerDIV').innerHTML = 'Music Player';
-    } 
-}
-
-</script>
+        function loadContent(albumKey) {
+        var musicContentDiv = document.getElementById('music-content');
+        musicContentDiv.innerHTML = albumContents[albumKey] || '<p>Select an album to see the player.</p>';
+    }
+    </script>
+    
 </head>
 <body>
+    <div class="container">
+        <!-- Top GIF -->
+        <div class="gif-top"><img src="img/duck.png" alt="Duck"></div>
 
-    <!-- main window -->
-    <div class="window-border ">
-        <div class="window">
-            <div class="title">
-                <div class="button close" id="window">
-                    &#8212;
-                </div>
-                dries.jp
-                <div class="button" id="max">
-                    &#9650;
-                </div>
-                <div class="button" id="min">
-                    &#9660;
-                </div>
+        <!-- Navigation Links -->
+        <div class="navigation">
+            Music
+            <a href="software.html">Software</a>
+            <a href="https://bsky.app/profile/driesjp.bsky.social" target="_new">Blog</a>
+            <a href="contact.html">Contact</a>
+            - <a href="windows/index.html">Windows</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <p><img src="img/welcome.gif" alt="Welcome"></p>
+            <hr>
+            <!-- CD Cover Images -->
+            <div class="cd-covers">
+                <div class="cd-cover-item"><img src="img/albums/soundwave_saga.png" alt="Soundwave Saga" onclick="loadContent('soundwave_saga')"></div>
+                <div class="cd-cover-item"><img src="img/albums/tlcowss.png" alt="The last compilation of weird synthy stuff" onclick="loadContent('tlcowss')"></div>
+                <div class="cd-cover-item"><img src="img/albums/waverunner.png" alt="Soundwave Saga" onclick="loadContent('waverunner')"></div>
+                <div class="cd-cover-item"><img src="img/albums/ninja_world.png" alt="The last compilation of weird synthy stuff" onclick="loadContent('ninja_world')"></div>
+                <div class="cd-cover-item"><img src="img/albums/handel.png" alt="Soundwave Saga" onclick="loadContent('handel')"></div>
+                <div class="cd-cover-item"><img src="img/albums/eibeyuf.png" alt="The last compilation of weird synthy stuff" onclick="loadContent('eibeyuf')"></div>
             </div>
-            <div class="menubar">
-                <div class="menuitem">
-                    <span style="text-decoration:underline;">F</span>ile
-                </div>
-                <div class="menuitem">
-                    <span style="text-decoration:underline;">O</span>ptions
-                </div>
-                <div class="menuitem">
-                    <span style="text-decoration:underline;">W</span>indows
-                </div>
-                <div class="menuitem" onclick="showCredits()">
-                    <span style="text-decoration:underline;">C</span>redits
-                </div>
-                <div class="menuitem">
-                    <span style="text-decoration:underline;">H</span>elp
-                </div>
-            </div>
-            <div class="icons">
-                <div class="icon" onclick="tglWindow('wndMusic')">
-                    <img src="icons/music.png" />
-                    <div class="text">Music</div>
-                </div>
-                <div class="icon" onclick="tglWindow('wndApplications')">
-                    <img src="icons/folder.png" />
-                    <div class="text">Applications</div>
-                </div>
-                <div class="icon" onclick="tglWindow('wndTerminal')">
-                    <img src="icons/msdos.png" />
-                    <div class="text">Terminal</div>
-                </div>
-                <div class="icon" onclick="window.open('http://bluesky.dries.jp');">
-                    <img src="icons/blog.png" />
-                    <div class="text">Blog</div>
-                </div>
-                <div class="icon" onclick="tglWindow('wndContact')">
-                    <img src="icons/credits.png" />
-                    <div class="text">Contact</div>
-                </div>
+            <div id="music-content">
+                <iframe style="border: 0; width: 550px; height: 642px;" src="https://bandcamp.com/EmbeddedPlayer/track=4007964055/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/track/demo">サウンドウェーブ (demo) by dries.jp</a></iframe>
             </div>
         </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-        <div id="context-menu" style="display:none">
-            <div class="context-item"><span style="text-decoration:underline;">R</span>estore</div>
-            <div class="context-item"><span style="text-decoration:underline;">M</span>ove</div>
-            <div class="context-item" onclick="window.open('http://www.duckin.space');"><span style="text-decoration:underline;">S</span>ecret duck</div>
-            <div class="context-item">Mi<span style="text-decoration:underline;">n</span>imize</div>
-            <div class="context-item">Ma<span style="text-decoration:underline;">x</span>imize</div>
+
+        <!-- Bottom GIF (Counter) -->
+        <div class="gif-bottom"><img src="img/counter.gif" alt="Counter"></div>
+
+        <!-- Small GIF Links -->
+        <div class="gif-links">
+            <a href="https://en.wikipedia.org/wiki/List_of_common_resolutions" target="_new"><img src="img/buttons/800x600.gif" alt="Link 1" width="88" height="31"></a>
+            <a href="https://en.wikipedia.org/wiki/Compaq" target="_new"><img src="img/buttons/compaq.gif" alt="Link 2" width="88" height="31"></a>
+            <a href="https://en.wikipedia.org/wiki/GeoCities" target="_new"><img src="img/buttons/geocities.gif" alt="Link 3" width="88" height="31"></a>
+            <a href="https://fedoraproject.org/" target="_new"><img src="img/buttons/redhat.gif" alt="Link 4" width="88" height="31"></a>
         </div>
     </div>
-    <!-- end main window -->
-    <!-- music window -->
-    <div class="window-border " id="wndMusic" style="display:none; left:150px; top: 200px; width: 700px; height: 200px;">
-        <div class="window">
-            <div class="title">
-                <div class="button close" id="window" onclick="hideWindow('wndMusic')">
-                    &#8212;
-                </div>
-                Music
-                
-            </div>
-            <div class="icons">
-                <div class="icon" onclick="loadMusic('soundwave'); tglWindow('wndMusicPlayer');">
-                    <img src="icons/music/soundwave.jpg" />
-                    <div class="text">Soundwave</div>
-                </div>
-
-
-
-                <div class="icon" onclick="loadMusic('synthy'); tglWindow('wndMusicPlayer');">
-                    <img src="icons/music/tlcowss.jpg" />
-                    <div class="text">the last collection of weird synthy stuff</div>
-                </div>
-
-
-                <div class="icon" onclick="loadMusic('waverunner'); tglWindow('wndMusicPlayer');">
-                    <img src="icons/music/waverunner.jpg" />
-                    <div class="text">waverunner</div>
-                </div>
-
-
-                <div class="icon" onclick="loadMusic('ninja'); tglWindow('wndMusicPlayer');">
-                    <img src="icons/music/nw.jpg" />
-                    <div class="text">ninja world</div>
-                </div>
-
-
-                <div class="icon" onclick="loadMusic('handel'); tglWindow('wndMusicPlayer');">
-                    <img src="icons/music/okdh.jpg" />
-                    <div class="text">ok computer, do handel</div>
-                </div>
-
-
-                <div class="icon" onclick="loadMusic('fish'); tglWindow('wndMusicPlayer');">
-                    <img src="icons/music/eibeyuf.jpg" />
-                    <div class="text">everyone is beautiful. even you, ugly fish</div>
-                </div>
-
-            </div>
-        </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-    </div>
-    <!-- end music window -->
-    <!-- Code window -->
-    <div class="window-border " id="wndCode" style="display:none; left:50px; top: 150px; width: 250px; height: 200px;">
-        <div class="window">
-            <div class="title">
-                <div class="button close" id="window" onclick="hideWindow('wndCode')">
-                    &#8212;
-                </div>
-                Code
-
-            </div>
-            <div class="icons">
-                <div class="icon">
-                    <img src="icons/app.png" />
-                    <div class="text">coming soon</div>
-                </div>
-
-
-            </div>
-        </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-    </div>
-    <!-- end Code window -->
-    <!-- applications window -->
-    <div class="window-border " id="wndApplications" style="display:none; left:350px; top: 300px; width: 400px; height: 200px;">
-        <div class="window">
-            <div class="title">
-                <div class="button close" id="window" onclick="hideWindow('wndApplications')">
-                    &#8212;
-                </div>
-                Applications
-
-            </div>
-            <div class="icons">
-                <div class="icon" onclick="tglWindow('wndApplicationsGnm')">
-                    <img src="icons/guitarnotesmapper.png" />
-                    <div class="text">Guitar notes mapper</div>
-                </div>
-
-                <div class="icon" onclick="window.open('jnd.html');">
-                    <img src="icons/jn.png" />
-                    <div class="text">Japanese number dictation</div>
-                </div>
-
-                <div class="icon" onclick="window.open('http://soundwavesaga.com');">
-                    <img src="icons/sds.png" />
-                    <div class="text">SoundWave Saga</div>
-                </div>
-            </div>
-        </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-    </div>
-    <!-- end applications window -->
-    <!-- guitar notes mapper window -->
-    <div class="window-border " id="wndApplicationsGnm" style="display:none; left:400px; top: 250px; width: 650px; height: 800px;">
-        <div class="window">
-            <div class="title">
-                <div class="button close" id="window" onclick="hideWindow('wndApplicationsGnm')">
-                    &#8212;
-                </div>
-                Applications - Guitar notes mapper
-
-            </div>
-            <div class="website">
-                <div class="website">
-                    <span style="font-size: 25px;"><center><u>Guitar notes mapper</u></center></span>
-                    <p>&nbsp;</p>
-                    <p>Guitar notes mapper is an application to help visualise the notes of chords on a guitar neck.</p>
-                    <p>Perhaps this may inspire someone to experiment instead of playing chord shapes, if they weren't already.</p>
-                    <p>&nbsp;</p>
-                    <p>It can also be used to simply display some or all notes on the neck.</p>
-                    <p>&nbsp;</p>
-                    <p>
-                        Windows 10+ (but should be 7+, though untested)
-                    </p>
-                    <center>
-                        <p>&nbsp;</p>
-                        <p><img src="app/gnm/gnmo.gif" /></p>
-
-                        <p><a href="app/gnm/Guitar_notes_mapper.zip"><img src="icons/download.gif" /></a></p>
-                    </center>
-
-                </div>
-
-
-            </div>
-        </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-    </div>
-    <!-- end guitar notes mapper window -->
-
-
-
-
-
-
-    <!-- music player window -->
-    <div class="window-border " id="wndMusicPlayer" style="display:none; left:500px; top: 450px; width: 400px; height: 20px;">
-        <div class="window">
-            <div class="title">
-                <div class="button close" id="window" onclick="hideWindow('wndMusicPlayer'); loadMusic('none'); ">
-                    &#8212;
-                </div>
-                Music Player
-
-            </div>
-                <div id="MusicPlayerDIV">
-
-                    <iframe style="border: 0; width: 400px; height: 241px;" src="https://bandcamp.com/EmbeddedPlayer/album=4053536911/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless><a href="https://driesjp.bandcamp.com/album/the-last-collection-of-weird-synthy-stuff">the last collection of weird synthy stuff by dries.jp</a></iframe>
-
-                </div>
-        </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-    </div>
-    <!-- end music player window -->
-
-
-
-
-
-
-    <!-- Terminal window -->
-    <div class="window-border " id="wndTerminal" style="display:none; left:50px; top: 150px; width: 1200px; height: 500px;">
-        <div class="window">
-            <div class="title">
-                <div class="button close" id="window" onclick="hideWindow('wndTerminal')">
-                    &#8212;
-                </div>
-                Terminal
-            </div>
-            <div id="screen">
-                <div id="Container">
-                    <div id="input">
-                        <p id="input_title"></p>
-                        <input id="input_source" type="command" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus>
-                    </div>
-                    <div id="logger">
-                        <div id="wrapper">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <script src="terminal.js"></script>
-            <script src="commands.js"></script>
-        </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-    </div>
-    <!-- end Terminal window -->
-    <!-- contact window -->
-    <div class="window-border " id="wndContact" style="display:none; left:150px; top: 300px; width: 200px; height: 120px;">
-        <div class="window">
-            <div class="title">
-                <div class="button close" id="window" onclick="hideWindow('wndContact')">
-                    &#8212;
-                </div>
-                Contact
-
-            </div>
-            <div class="icons">
-                <div class="icon" onclick="location.href='mailto:hello@dries.jp';">
-                    <img src="icons/mail.png" />
-                    <div class="text">hello@dries.jp</div>
-                </div>
-
-            </div>
-        </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-    </div>
-    <!-- end contact window -->
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script>
-    <script src="./script.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            const url = new URL(window.location.href);
-            const searchParams = url.searchParams;
-            switch (true) {
-                case searchParams.has("guitar"):
-                    tglWindow('wndApplicationsGnm');
-                    break;
-                case searchParams.has("apps"):
-                    tglWindow('wndApplications');
-                    break;
-                case searchParams.has("japanese"):
-                    window.location.href = "jnd.html";
-                    break;
-            }
-        });
-    </script>
-
 </body>
 </html>

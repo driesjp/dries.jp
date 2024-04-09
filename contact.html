@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dries.jp</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    function showEmailAddress(imageClicked) {
+        switch (imageClicked) {
+                case 'image1':
+                    document.getElementById('email').innerHTML = mailObf1();
+                    break;
+                case 'image2':
+                    document.getElementById('email').innerHTML = mailObf2();
+                    break;
+                case 'image3':
+                    document.getElementById('email').innerHTML = mailObf3();
+                    break;
+                default:
+                    document.getElementById('email').innerHTML = 'Unexpected error.';
+                    break;
+            }
+    }
+
+    function mailObf1() {
+        var asciiCodes = [116, 104, 105, 115, 32, 105, 115, 32, 110, 111, 116, 32, 49, 32, 100, 97, 110, 99, 105, 110, 103, 32, 98, 97, 98, 121];
+        return String.fromCharCode.apply(null, asciiCodes);
+    }
+
+    function mailObf2() {
+        var asciiCodes = [105, 110, 99, 111, 114, 114, 101, 99, 116, 32, 112, 105, 99, 116, 117, 114, 101];
+        return String.fromCharCode.apply(null, asciiCodes);
+    }
+
+    function mailObf3() {
+            var asciiCodes = [104, 101, 108, 108, 111, 64, 100, 114, 105, 101, 115, 46, 106, 112]; 
+            var linkText = String.fromCharCode.apply(null, asciiCodes);
+            return '<a href="mailto:' + linkText + '">' + linkText + '</a>';      
+    }
+</script>
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Top GIF -->
+        <div class="gif-top"><img src="img/duck.png" alt="Duck"></div>
+
+        <!-- Navigation Links -->
+        <div class="navigation">
+            <a href="index.html">Music</a>
+            <a href="software.html">Software</a>
+            <a href="https://bsky.app/profile/driesjp.bsky.social" target="_new">Blog</a>
+            Contact
+            - <a href="windows/index.html">Windows</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <table class="software-table">
+                <tbody>
+                    <tr>
+                        <td>
+
+
+            <p>To prove you're human, please click on the dancing baby.</p>
+
+            <div>
+                <img id="image1" src="img/mail/image1.jpg" alt="Image 1" onclick="showEmailAddress('image1')" />
+                <img id="image2" src="img/mail/image2.jpg" alt="Image 2" onclick="showEmailAddress('image2')" />
+                <img id="image3" src="img/mail/image3.gif" alt="Image 3" onclick="showEmailAddress('image3')" />
+            </div>
+            <br>
+            <div id="email"></div>
+
+
+        </td>
+    </tr>
+</tbody>
+</table>
+
+        </div>
+
+        <!-- Bottom GIF (Counter) -->
+        <div class="gif-bottom"><img src="img/counter.gif" alt="Counter"></div>
+
+        <!-- Small GIF Links -->
+        <div class="gif-links">
+            <a href="https://en.wikipedia.org/wiki/List_of_common_resolutions" target="_new"><img src="img/buttons/800x600.gif" alt="Link 1" width="88" height="31"></a>
+            <a href="https://en.wikipedia.org/wiki/Compaq" target="_new"><img src="img/buttons/compaq.gif" alt="Link 2" width="88" height="31"></a>
+            <a href="https://en.wikipedia.org/wiki/GeoCities" target="_new"><img src="img/buttons/geocities.gif" alt="Link 3" width="88" height="31"></a>
+            <a href="https://fedoraproject.org/" target="_new"><img src="img/buttons/redhat.gif" alt="Link 4" width="88" height="31"></a>
+        </div>
+    </div>
+</body>
+</html>

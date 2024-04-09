@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>dries.jp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="terminal.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<script>
+function tglWindow(wdwName) {
+    var wnd = $('#' + wdwName);
+    wnd.toggle();
+    if (wnd.is(':visible')) {
+        if ($('#gameFrame').length === 0) { // Check if the iframe doesn't already exist
+            $('#gameContainer').html(`<iframe id="gameFrame" frameborder="0" 
+            src="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F2%2F24b00b14f118580763440ecaddcc948f8cb94f14.jsdos&anonymous=1"
+            style="width: 700px; height: 700px;" allowfullscreen></iframe>`);
+        }
+    }
+}
+
+function hideWindow(wdwName) {
+    $('#' + wdwName).hide();
+    // Optionally clear the iframe to stop the game
+    $('#gameContainer').html('');
+}
+
+$(document).ready(function() {
+    $('.close').click(function() {
+        $(this).closest('.window-border').hide();
+        // Optionally clear the iframe to stop the game
+        $('#gameContainer').html('');
+    });
+});
+function showCredits() {
+  alert("This website is built on Windows 3.1 CSS by Matthijs\nIt can be found at: https://codepen.io/matthijss/pen/wzYjJQ"); 
+}
+
+
+
+</script>
+</head>
+<body>
+
+    <!-- main window -->
+    <div class="window-border ">
+        <div class="window">
+            <div class="title">
+                <div class="button close" id="window">
+                    &#8212;
+                </div>
+                dries.jp
+                <div class="button" id="max">
+                    &#9650;
+                </div>
+                <div class="button" id="min">
+                    &#9660;
+                </div>
+            </div>
+            <div class="menubar">
+                <div class="menuitem">
+                    <span style="text-decoration:underline;">F</span>ile
+                </div>
+                <div class="menuitem">
+                    <span style="text-decoration:underline;">O</span>ptions
+                </div>
+                <div class="menuitem">
+                    <span style="text-decoration:underline;">W</span>indows
+                </div>
+                <div class="menuitem" onclick="showCredits()">
+                    <span style="text-decoration:underline;">C</span>redits
+                </div>
+                <div class="menuitem">
+                    <span style="text-decoration:underline;">H</span>elp
+                </div>
+            </div>
+            <div class="icons">
+                <div class="icon" onclick="tglWindow('wndGame')">
+                    <img src="icons/folder.png" />
+                    <div class="text">Digger</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+        <div id="context-menu" style="display:none">
+            <div class="context-item" onclick="window.open('http://www.duckin.space');"><span style="text-decoration:underline;">S</span>ecret duck</div>
+            <div class="context-item" onclick="window.location.href='http://www.dries.jp';"><span style="text-decoration:underline;">E</span>xit</div>
+        </div>
+    </div>
+    <!-- end main window -->
+    <!-- music window -->
+    
+    <!-- Digger window -->
+    <div class="window-border " id="wndGame" style="display:none; left:400px; top: 250px; width: 800px; height: 800px;">
+        <div class="window">
+            <div class="title">
+                <div class="button close" onclick="hideWindow('wndGame')">
+                    &#8212;
+                </div>
+                Digger
+            </div>
+            <div class="website">
+                <div id="gameContainer"></div>
+            </div>
+        </div>
+   
+    
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+    <!-- end Digger window -->
+
+
+
+
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script>
+    <script src="./script.js"></script>
+</body>
+</html>
