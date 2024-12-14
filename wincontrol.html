@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dries.jp - WinControl - Automation Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            margin: 0;
+            color: #555;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 4px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #d63384;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #777;
+        }
+        #logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000; 
+            text-decoration: none; 
+        }
+
+        #logo img {
+            max-width: 100px; 
+            height: auto; 
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+    <a href="https://dries.jp" id="logo">
+        <img src="https://dries.jp/img/duck.png" target="_new" alt="dries.jp" />
+      </a>
+    <header>
+        <h1>WinControl 0.1 beta</h1>
+        <p>Automation tool for Windows, written in C.<br />More of a proof of concept than anything at this point, but still a useful little tool for automation.</p>
+
+        <p><a href="app/wincontrol/wincontrol.zip">Click here to download</a></p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Functions</h2>
+            <ul>
+                <li><code>ATTACHPROCESS "processname"</code> - Attach to a running process</li>
+                <li><code>BRINGTOFRONT</code> - Bring window (from process) to front</li>
+                <li><code>CLICK x y</code> - Click at specified coordinates</li>
+                <li><code>RIGHTCLICK x y</code> - Right-click at specified coordinates</li>
+                <li><code>DOUBLECLICK x y</code> - Double-click at specified coordinates</li>
+                <li><code>SENDKEYS "text"</code> - Send keystrokes</li>
+                <li><code>SLEEP milliseconds</code> - Wait for a specified time</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Usage</h2>
+            <pre>WinControl.exe -s &lt;script_file&gt;</pre>
+        </section>
+
+        <section>
+            <h2>Example Script</h2>
+            <pre>
+ATTACHPROCESS "notepad.exe"
+BRINGTOFRONT
+SENDKEYS "Hello, world!"
+CLICK 200 300
+SLEEP 1000
+RIGHTCLICK 400 500</pre>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Dries R. M. Swartele. All rights reserved.</p>
+    </footer>
+</body>
+</html>
