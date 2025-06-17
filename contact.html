@@ -1,96 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dries.jp</title>
-    <link rel="stylesheet" href="style.css">
-    <script>
-    function showEmailAddress(imageClicked) {
-        switch (imageClicked) {
-                case 'image1':
-                    document.getElementById('email').innerHTML = mailObf1();
-                    break;
-                case 'image2':
-                    document.getElementById('email').innerHTML = mailObf2();
-                    break;
-                case 'image3':
-                    document.getElementById('email').innerHTML = mailObf3();
-                    break;
-                default:
-                    document.getElementById('email').innerHTML = 'Unexpected error.';
-                    break;
-            }
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>dries.jp | contact</title>
 
-    function mailObf1() {
-        var asciiCodes = [116, 104, 105, 115, 32, 105, 115, 32, 110, 111, 116, 32, 49, 32, 100, 97, 110, 99, 105, 110, 103, 32, 98, 97, 98, 121];
-        return String.fromCharCode.apply(null, asciiCodes);
-    }
+<style>
+  /* Background tiled pattern */
+  body {
+    margin: 0;
+    background: #000033 url('img/bg.gif') repeat; /* classic stars or something */
+    font-family: "Comic Sans MS", "Arial Black", Gadget, sans-serif;
+    color: #FFFF00;
+    text-align: center;
+  }
 
-    function mailObf2() {
-        var asciiCodes = [105, 110, 99, 111, 114, 114, 101, 99, 116, 32, 112, 105, 99, 116, 117, 114, 101];
-        return String.fromCharCode.apply(null, asciiCodes);
-    }
+  /* Container with a cheesy frame */
+  .container {
+    background: #000080;
+    width: 760px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 5px double #FF00FF;
+    box-shadow:
+      0 0 0 4px #FFFF00 inset,
+      6px 6px 0 #FF00FF;
+  }
 
-    function mailObf3() {
-            var asciiCodes = [104, 101, 108, 108, 111, 64, 100, 114, 105, 101, 115, 46, 106, 112]; 
-            var linkText = String.fromCharCode.apply(null, asciiCodes);
-            return '<a href="mailto:' + linkText + '">' + linkText + '</a>';      
+  /* Title with blinking */
+  h1 {
+    font-size: 3rem;
+    color: #FF00FF;
+    text-shadow: 2px 2px #000000;
+    animation: blink 1.5s infinite;
+    margin: 0 0 20px 0;
+  }
+  @keyframes blink {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+  }
+
+  /* Navigation bar with marquee effect */
+  nav {
+    background: #FF69B4;
+    color: #000000;
+    font-weight: bold;
+    border: 3px outset #FF00FF;
+    margin-bottom: 15px;
+    padding: 6px;
+  }
+  nav a {
+    color: #0000FF;
+    text-decoration: underline;
+    margin: 0 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  nav a:hover {
+    color: #FF00FF;
+  }
+  nav span {
+    font-style: italic;
+  }
+  /* Marquee replacement with CSS animation */
+  .marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 15s linear infinite;
+  }
+  @keyframes marquee {
+    0% {transform: translateX(25%);}
+    100% {transform: translateX(-25%);}
+  }
+
+  /* Instructions in a pixel font with bright background */
+  .instructions {
+    font-family: "Courier New", Courier, monospace;
+    background: #FFFF00;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 3px inset #FF00FF;
+  }
+
+  /* Email images in pixel-art style frames */
+  .email-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .email-images img {
+    width: 96px;
+    height: 96px;
+    border: 4px ridge #FF00FF;
+    cursor: pointer;
+    background: #000000;
+    box-shadow: 4px 4px 0 #FFFF00;
+  }
+  .email-images img:hover {
+    filter: drop-shadow(0 0 6px #FF00FF);
+  }
+
+  /* Email text area */
+  #email {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.6rem;
+    color: #00FF00;
+    background: #000000;
+    border: 3px double #FF00FF;
+    padding: 10px;
+    min-height: 30px;
+    width: 440px;
+    margin: 0 auto 30px;
+    box-shadow: 3px 3px 0 #FFFF00;
+  }
+
+  /* Dancing baby at bottom with blinking border */
+  .gif-bottom img {
+    border: 5px solid #FF00FF;
+    box-shadow:
+      0 0 12px 4px #FFFF00,
+      inset 0 0 20px 3px #FF00FF;
+    animation: blink 1.5s infinite;
+  }
+
+  /* Links bar with pixel buttons */
+  .gif-links {
+    margin-top: 30px;
+  }
+  .gif-links a img {
+    margin: 5px;
+    border: 3px outset #FF00FF;
+    box-shadow: 2px 2px 0 #FFFF00;
+    cursor: pointer;
+    width: 88px;
+    height: 31px;
+  }
+  .gif-links a img:hover {
+    border-color: #00FF00;
+    box-shadow: 0 0 10px #00FF00;
+  }
+
+  /* Accessibility focus outlines */
+  img:focus {
+    outline: 3px solid #00FF00;
+    outline-offset: 2px;
+  }
+</style>
+
+<script>
+  function showEmailAddress(imageClicked) {
+    switch (imageClicked) {
+      case 'image1':
+        document.getElementById('email').textContent = mailObf1();
+        break;
+      case 'image2':
+        document.getElementById('email').textContent = mailObf2();
+        break;
+      case 'image3':
+        document.getElementById('email').innerHTML = mailObf3();
+        break;
+      default:
+        document.getElementById('email').textContent = 'Error! Try again.';
+        break;
     }
+  }
+
+  function mailObf1() {
+    var asciiCodes = [116, 104, 105, 115, 32, 105, 115, 32, 110, 111, 116, 32, 49, 32, 100, 97, 110, 99, 105, 110, 103, 32, 98, 97, 98, 121];
+    return String.fromCharCode.apply(null, asciiCodes);
+  }
+
+  function mailObf2() {
+    var asciiCodes = [105, 110, 99, 111, 114, 114, 101, 99, 116, 32, 112, 105, 99, 116, 117, 114, 101];
+    return String.fromCharCode.apply(null, asciiCodes);
+  }
+
+  function mailObf3() {
+    var asciiCodes = [104, 101, 108, 108, 111, 64, 100, 114, 105, 101, 115, 46, 106, 112];
+    var linkText = String.fromCharCode.apply(null, asciiCodes);
+    return '<a href="mailto:' + linkText + '" style="color:#00FF00; font-weight:bold; text-decoration:underline;">' + linkText + '</a>';
+  }
 </script>
-    
+
 </head>
 <body>
-    <div class="container">
-        <!-- Top GIF -->
-        <div class="gif-top"><a href="https://duckin.space/" target="_blank"><img src="img/duck.png" alt="Duck"></a></div>
 
-        <!-- Navigation Links -->
-        <div class="navigation">
-            <a href="index.html">Music</a>
-            <a href="software.html">Software</a>
-            <a href="https://bluesky.dries.jp" target="_new">Blog</a>
-            Contact
-        </div>
+  <div class="container" role="main" aria-label="contact page">
 
-        <!-- Main Content -->
-        <div class="main-content">
+    <h1>dries.jp contact page!</h1>
 
-            <table class="software-table">
-                <tbody>
-                    <tr>
-                        <td>
+    <nav aria-label="Primary navigation">
+      <div class="marquee" aria-live="polite">
+        <a href="index.html" tabindex="0">Music</a> &nbsp;|&nbsp;
+        <a href="software.html" tabindex="0">Software</a> &nbsp;|&nbsp;
+        <a href="https://bluesky.dries.jp" target="_blank" rel="noopener noreferrer" tabindex="0">Blog</a> &nbsp;|&nbsp;
+        <span>Contact</span>
+      </div>
+    </nav>
 
-
-            <p>To prove you're human, please click on the dancing baby.</p>
-
-            <div>
-                <img id="image1" src="img/mail/image1.jpg" alt="Image 1" onclick="showEmailAddress('image1')" />
-                <img id="image2" src="img/mail/image2.jpg" alt="Image 2" onclick="showEmailAddress('image2')" />
-                <img id="image3" src="img/mail/image3.gif" alt="Image 3" onclick="showEmailAddress('image3')" />
-            </div>
-            <br>
-            <div id="email"></div>
-
-
-        </td>
-    </tr>
-</tbody>
-</table>
-
-        </div>
-
-        <!-- Bottom GIF (Counter) -->
-        <div class="gif-bottom"><img src="img/counter.gif" alt="Counter"></div>
-
-        <!-- Small GIF Links -->
-        <div class="gif-links">
-            <a href="https://en.wikipedia.org/wiki/List_of_common_resolutions" target="_new"><img src="img/buttons/800x600.gif" alt="Link 1" width="88" height="31"></a>
-            <a href="https://en.wikipedia.org/wiki/Compaq" target="_new"><img src="img/buttons/compaq.gif" alt="Link 2" width="88" height="31"></a>
-            <a href="https://en.wikipedia.org/wiki/GeoCities" target="_new"><img src="img/buttons/geocities.gif" alt="Link 3" width="88" height="31"></a>
-            <a href="https://fedoraproject.org/" target="_new"><img src="img/buttons/redhat.gif" alt="Link 4" width="88" height="31"></a>
-        </div>
+    <div class="instructions" aria-live="assertive" role="alert">
+      To prove you're human, click on the dancing baby image below!
     </div>
+
+    <div class="email-images" role="list" aria-label="Click the images to reveal parts of the email address">
+      <img
+        src="img/mail/image1.jpg"
+        alt="Email part one"
+        tabindex="0"
+        role="listitem"
+        onclick="showEmailAddress('image1')"
+        onkeydown="if(event.key==='Enter'){showEmailAddress('image1')}"
+      />
+      <img
+        src="img/mail/image2.jpg"
+        alt="Email part two"
+        tabindex="0"
+        role="listitem"
+        onclick="showEmailAddress('image2')"
+        onkeydown="if(event.key==='Enter'){showEmailAddress('image2')}"
+      />
+      <img
+        src="img/mail/image3.gif"
+        alt="Email part three"
+        tabindex="0"
+        role="listitem"
+        onclick="showEmailAddress('image3')"
+        onkeydown="if(event.key==='Enter'){showEmailAddress('image3')}"
+      />
+    </div>
+
+    <div id="email" aria-live="polite" aria-atomic="true" aria-label="Email address display area"></div>
+
+    <div class="gif-bottom" aria-label="Visitor counter">
+      <img src="img/counter.gif" alt="Visitor counter" />
+    </div>
+
+    <div class="gif-links" aria-label="External links">
+      <a href="https://en.wikipedia.org/wiki/List_of_common_resolutions" target="_blank" rel="noopener noreferrer" tabindex="0">
+        <img src="img/buttons/800x600.gif" alt="Common resolutions" />
+      </a>
+      <a href="https://en.wikipedia.org/wiki/Compaq" target="_blank" rel="noopener noreferrer" tabindex="0">
+        <img src="img/buttons/compaq.gif" alt="Compaq" />
+      </a>
+      <a href="https://en.wikipedia.org/wiki/GeoCities" target="_blank" rel="noopener noreferrer" tabindex="0">
+        <img src="img/buttons/geocities.gif" alt="GeoCities" />
+      </a>
+      <a href="https://fedoraproject.org/" target="_blank" rel="noopener noreferrer" tabindex="0">
+        <img src="img/buttons/redhat.gif" alt="Fedora Project" />
+      </a>
+    </div>
+
+  </div>
+
 </body>
 </html>

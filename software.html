@@ -1,97 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dries.jp</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>dries.jp | software</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f0f4f8;
+    color: #222;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: #007acc;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+  }
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  .software-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .software-card img.preview {
+    width: 160px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
+  .software-info {
+    flex: 1;
+  }
+  .software-info h2 {
+    margin-top: 0;
+    color: #007acc;
+  }
+  .software-info p {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+  }
+  .download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    background: #007acc;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgb(0 122 204 / 0.5);
+    transition: background-color 0.3s ease;
+  }
+  .download-link:hover {
+    background: #005a9e;
+  }
+  .download-link img {
+    width: 20px;
+    height: 20px;
+  }
+  nav {
+    margin: 2rem auto;
+    max-width: 900px;
+    text-align: center;
+  }
+  nav a {
+    color: #007acc;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- Top GIF -->
-        <div class="gif-top"><a href="https://duckin.space/" target="_blank"><img src="img/duck.png" alt="Duck"></a></div>
 
-        <!-- Navigation Links -->
-        <div class="navigation">
-            <a href="index.html">Music</a>
-            Software
-            <a href="https://bluesky.dries.jp" target="_new">Blog</a>
-            <a href="contact.html">Contact</a>
-        </div>
+<header>
+  <h1>dries.jp software</h1>
+</header>
 
-        <!-- Main Content -->
-        <div class="main-content">
+<nav>
+  <a href="index.html">Music</a> |
+  <strong>Software</strong> |
+  <a href="https://bluesky.dries.jp" target="_blank" rel="noopener noreferrer">Blog</a> |
+  <a href="contact.html">Contact</a>
+</nav>
 
-
-    <table class="software-table">
-        <tbody>
-            <tr>
-                <td>
-                    <p><u>Akai EWI 5000 practice</u></p>
-                    <p>A tool to practice any fingering on the Akai EWI 5000 with midi input</p>
-                    <p>Connect your EWI via USB, select the device from the midi input</br> and see what note you're playing.</p>
-                    <p><img src="app/ewi/akai_ewi_5000.png" alt="GNM"></p>
-                    <p></p><a href="app/ewi/ewi_5000.zip" target="_new"><img src="img/download.gif" alt="Download Akai EWI 5000 practice tool"></a></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p><u>WinControl</u></p>
-                    <p>A tool for automation in Windows 10/11</p>
-                    <p><a href="wincontrol.html" target="_new"><img src="img/click_here4.gif"></a></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p><u>Learn CSV</u></p>
-                    <p>Altered version of the hiragana and katakana game where you can upload your own CSV files to<br />practice anything you'd like (online).</p>
-                    <p><a href="learncsv.html" target="_new"><img src="img/click_here3.gif"></a></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p><u>Practice Hiragana and Katakana</u></p>
-                    <p>A little game to practice your hiragana and katakana (online).<br />
-                    Click the correct answer or use numpad 1-3</p>
-                    <p><a href="kana.html" target="_new"><img src="img/click_here2.gif"></a></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p><u>Japanese number dictation</u></p>
-                    <p>Practice your Japanese numbers (online).</p>
-                    <p><a href="jnd.html" target="_new"><img src="img/click_here.gif"></a></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p><u>guitar notes mapper</u></p>
-                    <p>A is a versatile application designed to help visualize chord notes across the guitar neck.<br />
-                    It’s perfect for encouraging creative exploration, inspiring guitarists to go beyond standard<br />chord shapes and experiment with new note arrangements.<br />
-                    Additionally, the app can simply display selected notes—or all notes—on the fretboard<br />for easy reference.</p>
-
-                    <p>Windows 10+ (but should be 7+, though untested)</p>
-
-
-                    <p><img src="app/gnm/gnmo.gif" alt="GNM"></p>
-                    <p></p><a href="app/gnm/Guitar_notes_mapper.zip" target="_new"><img src="img/download.gif" alt="Download Guitar Notes Mapper"></a></p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-        </div>
-
-        <!-- Bottom GIF (Counter) -->
-        <div class="gif-bottom"><img src="img/counter.gif" alt="Counter"></div>
-
-        <!-- Small GIF Links -->
-        <div class="gif-links">
-            <a href="https://en.wikipedia.org/wiki/List_of_common_resolutions" target="_new"><img src="img/buttons/800x600.gif" alt="800x600" width="88" height="31"></a>
-            <a href="https://en.wikipedia.org/wiki/Compaq" target="_new"><img src="img/buttons/compaq.gif" alt="Compaq" width="88" height="31"></a>
-            <a href="https://en.wikipedia.org/wiki/GeoCities" target="_new"><img src="img/buttons/geocities.gif" alt="Geocities" width="88" height="31"></a>
-            <a href="https://fedoraproject.org/" target="_new"><img src="img/buttons/redhat.gif" alt="Redhat" width="88" height="31"></a>
-        </div>
+<main>
+  <section class="software-card">
+    <img src="app/ewi/akai_ewi_5000.png" alt="Akai EWI 5000 Practice" class="preview" />
+    <div class="software-info">
+      <h2>Akai EWI 5000 Practice</h2>
+      <p>Practice any fingering on the Akai EWI 5000 with MIDI input.</p>
+      <p>Connect your EWI via USB, select the device from MIDI input, and see what note you're playing.</p>
+      <a href="app/ewi/ewi_5000.zip" class="download-link" target="_blank" rel="noopener noreferrer">
+        <img src="img/www2.gif" alt="Download Icon" /> Download Akai EWI 5000 Practice
+      </a>
     </div>
+  </section>
+
+  <section class="software-card">
+    <img src="img/duck.png" alt="WinControl" class="preview" style="width:120px;"/>
+    <div class="software-info">
+      <h2>WinControl</h2>
+      <p>An open-source tool for automation in Windows 10 and 11.</p>
+      <a href="wincontrol.html" class="download-link" target="_blank" rel="noopener noreferrer">
+        <img src="img/www.gif" alt="Click Here" style="width:20px; height:auto;" /> WinControl on Github
+      </a>
+      <p>&nbsp;</p>
+      <p>Other open-source projects are available on <a href="https://github.com/driesjp" target="_blank" rel="noopener noreferrer">Github</a> too.</p>
+    </div>
+  </section>
+
+  <section class="software-card">
+    <img src="img/duck.png" alt="Learn CSV" class="preview" style="width:120px;"/>
+    <div class="software-info">
+      <h2>Learn CSV</h2>
+      <p>An altered version of the hiragana and katakana game where you can upload your own CSV files to practice anything you'd like (online).</p>
+      <a href="learncsv.html" class="download-link" target="_blank" rel="noopener noreferrer">
+        <img src="img/www.gif" alt="Click Here" style="width:20px; height:auto;" /> Play Online
+      </a>
+    </div>
+  </section>
+
+  <section class="software-card">
+    <img src="img/duck.png" alt="Practice Hiragana and Katakana" class="preview" style="width:120px;"/>
+    <div class="software-info">
+      <h2>Practice Hiragana and Katakana</h2>
+      <p>A little game to practice your hiragana and katakana online.<br />Click the correct answer or use numpad 1-3.</p>
+      <a href="kana.html" class="download-link" target="_blank" rel="noopener noreferrer">
+        <img src="img/www.gif" alt="Click Here" style="width:20px; height:auto;" /> Play Online
+      </a>
+    </div>
+  </section>
+
+  <section class="software-card">
+    <img src="img/duck.png" alt="Japanese Number Dictation" class="preview" style="width:120px;"/>
+    <div class="software-info">
+      <h2>Japanese Number Dictation</h2>
+      <p>Practice your Japanese numbers (online).</p>
+      <a href="jnd.html" class="download-link" target="_blank" rel="noopener noreferrer">
+        <img src="img/www.gif" alt="Click Here" style="width:20px; height:auto;" /> Play Online
+      </a>
+    </div>
+  </section>
+
+  <section class="software-card">
+    <img src="app/gnm/gnmo.gif" alt="Guitar Notes Mapper" class="preview" />
+    <div class="software-info">
+      <h2>Guitar Notes Mapper</h2>
+      <p>
+        A versatile application designed to help visualize chord notes across the guitar neck.<br />
+        Perfect for creative exploration, inspiring guitarists to go beyond standard chord shapes.<br />
+        Can display selected notes—or all notes—on the fretboard for easy reference.<br />
+        Windows 10+ (should work on 7+ but untested).
+      </p>
+      <a href="app/gnm/Guitar_notes_mapper.zip" class="download-link" target="_blank" rel="noopener noreferrer">
+        <img src="img/www2.gif" alt="Download Icon" /> Download Guitar Notes Mapper
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 dries.jp - All rights reserved.</p>
+</footer>
+
 </body>
 </html>
