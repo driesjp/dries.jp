@@ -759,7 +759,6 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#music" onclick="closeMenu()">Music</a></li>
                 <li><a href="#software" onclick="closeMenu()">Software</a></li>
-                <li><a href="#blog" onclick="closeMenu()">Blog</a></li>
                 <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
             </ul>
         </nav>
@@ -989,32 +988,6 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Blog Section -->
-        <section id="blog" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Blog</h2>
-                    <p>Latest posts from Bluesky</p>
-                </div>
-                
-                <!-- Bluesky Feed Container -->
-                <div id="bluesky-feed" class="blog-posts">
-                    <div class="loading-placeholder">
-                        <p>Loading latest posts...</p>
-                    </div>
-                </div>
-                
-                <div class="view-more" style="text-align: center; margin-top: 30px;">
-                    <a href="https://bsky.app/profile/driesjp.bsky.social" 
-                    target="_blank" 
-                    class="btn btn-secondary">
-                    View All Posts on Bluesky
-                    </a>
-                </div>
-            </div>
-        </section>
-
 
         <section id="contact" class="section hero">
             <div class="container">
@@ -1106,63 +1079,6 @@ async function loadBlueskyFeed() {
     }
 }
 
-function displayPosts(records) {
-    const feedContainer = document.getElementById('bluesky-feed');
-    
-    if (!records || records.length === 0) {
-        feedContainer.innerHTML = '<div class="error-message"><p>No posts found.</p></div>';
-        return;
-    }
-    
-    const postsHTML = records.map(record => {
-        const post = record.value;
-        const createdAt = new Date(post.createdAt);
-        const timeAgo = getTimeAgo(createdAt);
-        
-        // Truncate long posts
-        let content = post.text || '';
-        if (content.length > 200) {
-            content = content.substring(0, 200) + '...';
-        }
-        
-        // Handle images
-        let imageHTML = '';
-        if (post.embed && post.embed.images && post.embed.images.length > 0) {
-            const images = post.embed.images.slice(0, 4); // Max 4 images
-            const imageClass = images.length === 1 ? 'single-image' : 'multiple-images';
-            
-            imageHTML = `
-                <div class="post-images ${imageClass}">
-                    ${images.map(img => {
-                        const imageUrl = `https://cdn.bsky.app/img/feed_thumbnail/plain/${record.uri.split('//')[1].split('/')[0]}/${img.image.ref.$link}@jpeg`;
-                        return `<img src="${imageUrl}" alt="${escapeHtml(img.alt || 'Post image')}" class="post-image" loading="lazy">`;
-                    }).join('')}
-                </div>
-            `;
-        }
-        
-        // Create post URI for linking
-        const postUri = `https://bsky.app/profile/driesjp.bsky.social/post/${record.uri.split('/').pop()}`;
-        
-        return `
-            <div class="blog-post">
-                <div class="post-header">
-                    <span class="post-author">@driesjp</span>
-                    <span class="post-time">${timeAgo}</span>
-                </div>
-                ${imageHTML}
-                <div class="post-content">
-                    ${escapeHtml(content)}
-                </div>
-                <a href="${postUri}" target="_blank" class="post-link">
-                    View on Bluesky →
-                </a>
-            </div>
-        `;
-    }).join('');
-    
-    feedContainer.innerHTML = postsHTML;
-}
 
 function getTimeAgo(date) {
     const now = new Date();
