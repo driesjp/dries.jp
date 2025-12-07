@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dries.jp – Archive</title>
+  <style>
+    * { margin:0; padding:0; box-sizing: border-box; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0D0D0D;
+      color: #DDE3E9;
+      min-height: 100vh;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background-color 3s ease;
+    }
+
+    h1 {
+      font-weight: 300;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      opacity: 0.95;
+      animation: subtleGlow 3s infinite alternate;
+      text-align: center;
+    }
+
+    p.description {
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: #A8B8C4;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 3rem;
+    }
+
+    nav a {
+      font-weight: 300;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #DDE3E9;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover { opacity: 0.6; }
+
+    @keyframes subtleGlow {
+      0%, 100% { opacity: 0.95; }
+      50% { opacity: 0.88; }
+    }
+
+    .album-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1000px;
+      width: 100%;
+      margin-bottom: 4rem;
+    }
+
+    .album-card {
+      background-color: #121212;
+      border: 1px solid #2B2B2B;
+      padding: 1rem;
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .album-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 15px rgba(200,200,200,0.2);
+    }
+
+    .album-cover {
+      width: 200px;
+      height: 200px;
+      background-color: #2B2B2B;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #A8B8C4;
+      text-align: center;
+    }
+
+    .album-title {
+      font-weight: 400;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .album-subtitle a {
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: #A8B8C4;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .album-subtitle a:hover { color: #FFFDF6; }
+
+    .software-section {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .software-section h2 {
+      font-weight: 300;
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid #2B2B2B;
+      padding-bottom: 0.3rem;
+      color: #DDE3E9;
+    }
+
+    .software-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .software-list li a {
+      color: #A8B8C4;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .software-list li a:hover { color: #FFFDF6; }
+
+    .platform-icon {
+    width: 26px;
+    height: 26px;
+    filter: invert(100%) brightness(170%);
+    opacity: .8;
+    transition: .2s ease;
+    }
+
+    .platform-icon:hover {
+    opacity: 1;
+    transform: scale(1.15);
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.8rem;
+      opacity: 0.5;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      p.description { font-size: 1rem; }
+      .album-card { width: 90%; max-width: 300px; }
+      .album-cover { width: 100%; padding-top: 100%; height: auto; position: relative; }
+      .album-cover img { width: 100%; height: auto; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Archive</h1>
+  <p class="description">
+    A record of earlier works — older music and software projects.
+  </p>
+
+<!-- https://www.youtube.com/watch?v=kNAj_28KRe0 essential europa-->
+
+  <nav>
+    <a href="index.html">home</a>
+    archive
+    <a href="contact.html">contact</a>
+  </nav>
+
+  <!-- Music / Albums Section -->
+  <section class="album-section">
+<div class="album-card">
+  <div class="album-cover">
+    <img src="img/albums/paper_plains.png" alt="Paper plains" style="
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    ">
+  </div>
+  <div class="album-title">Paper plains</div>
+  <div class="album-subtitle">
+           <a href="https://music.apple.com/us/album/paper-plains-single/1778833213?itscg=30200&itsct=music_box_link&ls=1&app=music&mttnsubad=1778833213" target="_blank" class="platform-link">
+        <img src="img/logos/applemusic.svg" alt="Apple Music" class="platform-icon">&nbsp;
+      </a>   
+      <a href="https://open.spotify.com/album/1CWfMkgQb6YfvNDRfxAqx0?si=fqcbmzUJREqGc_gZEyAcTg" target="_blank" class="platform-link">
+        <img src="img/logos/spotify.svg" alt="Spotify" class="platform-icon">&nbsp;
+      </a>
+  </div>
+</div>
+
+
+
+
+<div class="album-card">
+  <div class="album-cover">
+    <img src="img/albums/soundwave_saga.png" alt="Soundwage saga (demo)" style="
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    ">
+  </div>
+  <div class="album-title">Soundwage saga (demo)</div>
+  <div class="album-subtitle">
+      <a href="https://driesjp.bandcamp.com/track/demo" target="_blank" class="platform-link">
+        <img src="img/logos/soundcloud.svg" alt="Soundcloud" class="platform-icon">&nbsp;
+      </a>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="album-card">
+  <div class="album-cover">
+    <img src="img/albums/tlcowss.png" alt="The last collection of weird synthy stuff" style="
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    ">
+  </div>
+  <div class="album-title">The last collection of weird synthy stuff</div>
+  <div class="album-subtitle">
+      <a href="https://driesjp.bandcamp.com/album/the-last-collection-of-weird-synthy-stuff" target="_blank" class="platform-link">
+        <img src="img/logos/bandcamp.svg" alt="Bandcamp" class="platform-icon">&nbsp;
+      </a>
+
+       <a href="https://music.apple.com/us/album/the-last-collection-of-weird-synthy-stuff-single/1739681544?itscg=30200&itsct=music_box_link&ls=1&app=music&mttnsubad=1739681544" target="_blank" class="platform-link">
+        <img src="img/logos/applemusic.svg" alt="Apple Music" class="platform-icon">&nbsp;
+      </a>   
+
+      <a href="https://open.spotify.com/album/6Un2GtawrON5F8pkueqJgW?si=DirzmHv7SRK77iu8eAdCqw" target="_blank" class="platform-link">
+        <img src="img/logos/spotify.svg" alt="Spotify" class="platform-icon">
+      </a>
+  </div>
+</div>
+
+
+
+
+
+<div class="album-card">
+  <div class="album-cover">
+    <img src="img/albums/waverunner.png" alt="Waverunner" style="
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    ">
+  </div>
+  <div class="album-title">Waverunner</div>
+  <div class="album-subtitle">
+      <a href="https://driesjp.bandcamp.com/album/waverunner" target="_blank" class="platform-link">
+        <img src="img/logos/bandcamp.svg" alt="Bandcamp" class="platform-icon">&nbsp;
+      </a>
+
+       <a href="https://music.apple.com/us/album/waverunner-single/1739651984?itscg=30200&itsct=music_box_link&ls=1&app=music&mttnsubad=1739651984" target="_blank" class="platform-link">
+        <img src="img/logos/applemusic.svg" alt="Apple Music" class="platform-icon">&nbsp;
+      </a>   
+
+      <a href="https://open.spotify.com/album/5FGvnm1s0iqpvSXq6ucADs?si=mu2-IRZ1QKuqsFVWbuyIkg" target="_blank" class="platform-link">
+        <img src="img/logos/spotify.svg" alt="Spotify" class="platform-icon">
+      </a>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="album-card">
+  <div class="album-cover">
+    <img src="img/albums/handel.png" alt="OK computer, do Handel." style="
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    ">
+  </div>
+  <div class="album-title">OK computer, do Handel.</div>
+  <div class="album-subtitle">
+      <a href="https://driesjp.bandcamp.com/album/ok-computer-do-handel" target="_blank" class="platform-link">
+        <img src="img/logos/bandcamp.svg" alt="Bandcamp" class="platform-icon">&nbsp;
+      </a>
+
+      <a href="https://open.spotify.com/album/3HHuQuZjGaILBkCFhkzmb0?si=leYuwZNQSBas0_W0-o0n4Q" target="_blank" class="platform-link">
+        <img src="img/logos/spotify.svg" alt="Spotify" class="platform-icon">
+      </a>
+  </div>
+</div>
+
+
+
+
+
+<div class="album-card">
+  <div class="album-cover">
+    <img src="img/albums/ninja_world.png" alt="Ninja World" style="
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    ">
+  </div>
+  <div class="album-title">Ninja World</div>
+  <div class="album-subtitle">
+
+
+      <a href="https://driesjp.bandcamp.com/album/ninja-world-original-video-game-soundtrack" target="_blank" class="platform-link">
+        <img src="img/logos/bandcamp.svg" alt="Bandcamp" class="platform-icon">
+      </a>
+
+       <a href="https://music.apple.com/us/album/ninja-world-original-video-game-soundtrack-ep/1720935445?itscg=30200&itsct=music_box_link&ls=1&app=music&mttnsubad=1720935445" target="_blank" class="platform-link">
+        <img src="img/logos/applemusic.svg" alt="Apple Music" class="platform-icon">&nbsp;
+      </a>   
+
+      <a href="https://open.spotify.com/album/0qkqoNJX9f0VR0AY68ixhL?si=plsd5G22TrqwEKrcqVG7YQ" target="_blank" class="platform-link">
+        <img src="img/logos/spotify.svg" alt="Spotify" class="platform-icon">&nbsp;
+      </a>
+
+  </div>
+</div>
+
+
+
+
+
+<div class="album-card">
+  <div class="album-cover">
+    <img src="img/albums/eibeyuf.png" alt="Everyone is beautiful. Even you, ugly fish." style="
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    ">
+  </div>
+  <div class="album-title">Everyone is beautiful. Even you, ugly fish.</div>
+  <div class="album-subtitle">
+
+
+
+      <a href="https://driesjp.bandcamp.com/album/-" target="_blank" class="platform-link">
+        <img src="img/logos/bandcamp.svg" alt="Bandcamp" class="platform-icon">&nbsp;
+      </a>
+
+       <a href="https://music.apple.com/us/album/%E8%AA%B0%E3%82%82%E3%81%8C%E7%BE%8E%E3%81%97%E3%81%84%E3%81%A7%E3%81%99-%E3%81%82%E3%81%AA%E3%81%9F%E3%81%A7%E3%81%95%E3%81%88-%E9%86%9C%E3%81%84%E9%AD%9A/1739658485?itscg=30200&itsct=music_box_link&ls=1&app=music&mttnsubad=1739658485" target="_blank" class="platform-link">
+        <img src="img/logos/applemusic.svg" alt="Apple Music" class="platform-icon">&nbsp;
+      </a>   
+
+      <a href="https://open.spotify.com/album/46wSqV2wwOPDZOAR21BZZc?si=v1vGR4trREqrF4TYzDDK9g" target="_blank" class="platform-link">
+        <img src="img/logos/spotify.svg" alt="Spotify" class="platform-icon">
+      </a>
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+<div class="album-card">
+  <div class="album-cover">
+    <img src="img/ac.jpg" alt="2011-2016" style="
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    ">
+  </div>
+  <div class="album-title">2011-2016</div>
+  <div class="album-subtitle">
+
+
+
+
+      <a href="https://soundcloud.com/andicoryn" target="_blank" class="platform-link">
+        <img src="img/logos/soundcloud.svg" alt="Soundcloud" class="platform-icon">
+      </a>
+
+
+
+  </div>
+</div>
+
+
+
+
+<div class="album-card">
+  <div class="album-cover">
+    <img src="img/essential_europa.png" alt="Essential Europa" style="
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    ">
+  </div>
+  <div class="album-title">Essential Europa for Propellerhead Europa</div>
+  <div class="album-subtitle">
+
+      <a href="https://www.youtube.com/watch?v=kNAj_28KRe0" target="_blank" class="platform-link">
+        <img src="img/logos/youtube.svg" alt="Youtube" class="platform-icon">
+      </a>&nbsp;
+
+    <a href="essential_europa_by_dries.jp.zip" target="_blank" class="platform-link">
+        <img src="img/logos/download.svg" alt="Free download" class="platform-icon">
+      </a>
+
+  </div>
+</div>
+
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Software Section -->
+  <section class="software-section">
+    <h2>Software / Projects</h2>
+    <ul class="software-list">
+      <li><a href="http://www.driesswartele.com" target="_blank">Click here to visit the software page</a></li>
+    </ul>
+  </section>
+
+  <footer>© dries.jp</footer>
+
+  <script>
+    // Smooth background shimmers
+    const body = document.body;
+    let alpha = 0.95;
+    let direction = 0.001;
+
+    function animateBackground() {
+      alpha += direction;
+      if (alpha > 0.98 || alpha < 0.93) direction *= -1;
+      body.style.backgroundColor = `rgba(13,13,13,${alpha})`;
+      requestAnimationFrame(animateBackground);
+    }
+
+    animateBackground();
+  </script>
+
+</body>
+</html>

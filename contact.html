@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dries.jp – Contact</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+
+    body {
+      font-family:'Inter', sans-serif;
+      background-color:#0D0D0D;
+      color:#DDE3E9;
+      min-height:100vh;
+      padding:2rem;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+
+    h1 {
+      font-weight:300;
+      font-size:3rem;
+      opacity:0.95;
+      margin-bottom:1rem;
+    }
+
+    p {
+      font-weight:300;
+      font-size:1.1rem;
+      color:#A8B8C4;
+      max-width:600px;
+      margin-bottom:2rem;
+    }
+
+    a.contact-link {
+      font-weight:300;
+      font-size:1.1rem;
+      color:#DDE3E9;
+      text-decoration:underline;
+      transition:opacity 0.3s ease;
+      cursor:pointer;
+    }
+
+    a.contact-link:hover { opacity:0.6; }
+
+    .reveal-btn {
+      font-size:1rem;
+      cursor:pointer;
+      color:#DDE3E9;
+      text-decoration:underline;
+      opacity:0.8;
+      transition:opacity 0.2s;
+      background:none;
+      border:none;
+    }
+
+    .reveal-btn:hover { opacity:0.5; }
+
+    nav {
+      margin-top:2rem;
+      display:flex;
+      gap:15px;
+    }
+
+    nav a {
+      text-decoration:none;
+      color:#DDE3E9;
+      opacity:0.9;
+      transition:opacity 0.3s;
+    }
+
+    nav a:hover { opacity:0.6; }
+
+    footer {
+      margin-top:3rem;
+      opacity:0.4;
+      font-size:0.8rem;
+    }
+
+    @media(max-width:600px) {
+      h1 { font-size:2rem; }
+      p { font-size:1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Contact</h1>
+
+<p>For inquiries, collaborations, or just to say hello:</p>
+
+<p id="email-wrapper">
+  <button class="reveal-btn">reveal email</button>
+</p>
+
+<nav>
+  <a href="index.html">home</a>
+  <a href="archive.html">archive</a>
+  contact
+</nav>
+
+<footer>© dries.jp</footer>
+
+<script>
+  // background shimmer
+  let alpha = 0.96;
+  let direction = 0.00005; // much slower
+  function animateBackground(){
+    alpha += direction;
+    if(alpha > 0.98 || alpha < 0.93) direction *= -1;
+    document.body.style.backgroundColor = `rgba(13,13,13,${alpha})`;
+    requestAnimationFrame(animateBackground);
+  }
+  animateBackground();
+
+  // safer email reveal system
+  const scrambled = ["h","e","l","l","o","@","d","r","i","e","s",".","j","p"];
+  const mapping = [0,1,2,3,4,5,6,7,8,9,10,11,12,13]; // correct 14 characters
+
+  function revealEmail(){
+    const email = mapping.map(i => scrambled[i]).join("");
+    const wrapper = document.getElementById("email-wrapper");
+    wrapper.innerHTML = `<a class="contact-link" href="mailto:${email}">${email}</a>`;
+  }
+
+  document.querySelector(".reveal-btn").addEventListener("click", revealEmail);
+</script>
+
+</body>
+</html>
